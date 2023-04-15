@@ -16,5 +16,12 @@ Date date = dateFormat.parse("15.12.1999");
 
 ## Assumptions
 1. lastName and Date cannot be null
+2. duplicates are allowed in BankAccountsList
+3. account list in BankAccountList cannot be null
+4. null cannot be stored in BankAccountList
 
-
+## Вопросы
+1. Правильная обработка исключений. Что делать, если в коллекцию может попасть ноль?
+2. Как вообще оценивать что может принимать значение null, а что нет? Пример - должна ли быть возможность использовать setter BankAccounts для установки значения null?
+3. Как правильно реализовать функционал выбора, по какому полю сортируем? Отдельный класс?
+4. как правильно реализовать функционал поиска в зависимости от выбранного по поля. Overloading методов?
