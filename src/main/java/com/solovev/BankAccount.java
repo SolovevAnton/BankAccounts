@@ -21,8 +21,9 @@ public class BankAccount {
     public BankAccount(long num, int code, String lastName, double initialDeposit, String dateOfOpening, double rateOfReturn) throws ParseException {
         this.NUM = num;
         this.code = code;
-        this.lastName = lastName;
+        setLastName(lastName);
         this.deposit = initialDeposit;
+        if( dateOfOpening == null) { throw new NullPointerException("Date cant be null");}
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         this.DATE = dateFormat.parse(dateOfOpening);
     }
@@ -60,7 +61,7 @@ public class BankAccount {
     }
 
     public void setLastName(String lastName) {
-        if()
+        if( lastName == null) { throw new NullPointerException("Last Name cant be null");}
         this.lastName = lastName;
     }
 

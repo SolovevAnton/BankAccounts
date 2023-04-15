@@ -16,5 +16,5 @@ Date date = dateFormat.parse("15.12.1999");
 
 ## Assumptions
 1. lastName and Date cannot be null
-2. Deposit cannot be less than 0
-3. Bank Account number cannot be negative
+
+
