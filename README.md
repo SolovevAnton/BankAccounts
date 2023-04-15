@@ -1,5 +1,5 @@
 # BankAccounts
-Small practice project
+Small practice project. Done in 2h
 ## Task
 
 Указания к выполнению задания:
