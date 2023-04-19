@@ -1,32 +1,52 @@
-package com.solovev;
+package com.solovev.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.Date;
 
-public class BankAccount {
-    /*unique account number*/
+public class BankAccount implements Comparable<BankAccount> {
+
     private final long NUM;
     private int code;
     private String lastName;
-    /*
-    * deposit in euros*/
+
     private double deposit;
-    /*date of account opening */
+    /**
+     * date of account opening
+     */
     private final Date DATE;
-    /*
-    rate of return in %
-    */
+    /**
+     * rate of return in %
+     */
     private double rate;
+
     public BankAccount(long num, int code, String lastName, double initialDeposit, String dateOfOpening, double rateOfReturn) throws ParseException {
         this.NUM = num;
         this.code = code;
         setLastName(lastName);
         this.deposit = initialDeposit;
-        if( dateOfOpening == null) { throw new NullPointerException("Date cant be null");}
+        if (dateOfOpening == null) {
+            throw new NullPointerException("Date cant be null");
+        }
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         this.DATE = dateFormat.parse(dateOfOpening);
     }
+
+    /**
+     * Method to compare Bank Accounts. Comparing is done first by number, then by date then by name
+     *
+     * @param other the object to be compared.
+     * @return > then 0 if this is > then other
+     */
+    @Override
+    public int compareTo(BankAccount other) {
+        return Comparator.comparing(BankAccount::getNUM)
+                .thenComparing(BankAccount::getDATE)
+                .thenComparing(BankAccount::getLastName)
+                .compare(this, other);
+    }
+
 
     @Override
     public String toString() {
@@ -61,7 +81,9 @@ public class BankAccount {
     }
 
     public void setLastName(String lastName) {
-        if( lastName == null) { throw new NullPointerException("Last Name cant be null");}
+        if (lastName == null) {
+            throw new NullPointerException("Last Name cant be null");
+        }
         this.lastName = lastName;
     }
 

@@ -1,5 +1,5 @@
 # BankAccounts
-Small practice project. Done in 2h
+Small practice project. Done in 2h. Refactored in 45 min. 
 ## Task
 
 Указания к выполнению задания:
